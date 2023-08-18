@@ -4,7 +4,7 @@ RUN apk update && apk add make git build-base
 
 RUN git clone https://github.com/eradman/entr.git /entr
 WORKDIR /entr
-RUN git checkout c564e6bdca1dfe2177d1224363cad734158863ad
+RUN git checkout e3cc0b101ac1fd714720e17f068604b8a696a874
 RUN cp Makefile.linux Makefile
 RUN CFLAGS="-static" make install
 

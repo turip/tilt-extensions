@@ -46,7 +46,7 @@ var entrFlags = flag.String("entr_flags", "-rz", "Command line flags to pass to 
 func main() {
 	flag.Parse()
 
-	cmd := exec.Command(*entrPath, *entrFlags)
+	cmd := exec.Command(*entrPath, strings.Split(*entrFlags, " ")...)
 	cmd.Stdin = strings.NewReader(fmt.Sprintf("%s\n", *watchFile))
 	cmd.Args = append(cmd.Args, flag.Args()...)
 	cmd.Stdout = os.Stdout
